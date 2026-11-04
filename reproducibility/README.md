@@ -2,7 +2,7 @@
 
 Code and numerical results for **Probabilistic Easy Variational Causal Effect**, by Usef Faghihi and Amir Saki.
 
-The November 2026 revision adds three self-contained synthetic studies. The two original notebooks at the repository root are retained unchanged as historical source material. Start with the scripts below for the revised results.
+The November 2026 revision adds three self-contained synthetic studies. The two original notebooks are preserved unchanged in [archive/](../archive/README.md) as historical source material. Start with the scripts below for the revised results.
 
 | Study | Question | Location |
 | --- | --- | --- |

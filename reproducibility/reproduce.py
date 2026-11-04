@@ -185,7 +185,11 @@ def main():
                     if ".." in Path(item.filename).parts:
                         raise ValueError("Invalid reference archive path")
                     archive.extract(item, work)
-    notebooks = list(ROOT.glob("*.ipynb")) or list(ROOT.parent.glob("*.ipynb"))
+    notebooks = (
+        list(ROOT.glob("*.ipynb"))
+        or list(ROOT.parent.glob("*.ipynb"))
+        or list((ROOT.parent / "archive").glob("*.ipynb"))
+    )
     for notebook in notebooks:
         shutil.copy2(notebook, work / notebook.name)
     logs = work / "logs"
