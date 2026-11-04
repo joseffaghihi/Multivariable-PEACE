@@ -15,4 +15,4 @@ The [reproducibility package](reproducibility/README.md) contains the revised so
 
 Use `--mode validate`, `--mode figures`, or `--mode full` for numerical validation, report reconstruction, or complete Monte Carlo regeneration. See the [full instructions](reproducibility/docs/REPRODUCIBILITY.md) and [manuscript result map](reproducibility/docs/MANUSCRIPT_RESULTS.md).
 
-The original two notebooks below are retained unchanged for provenance. Their exploratory cells are not the supported pipeline for the revised manuscript.
+The two original notebooks are preserved unchanged in the [archive](archive/README.md). Their exploratory cells are not the supported pipeline for the revised manuscript.
