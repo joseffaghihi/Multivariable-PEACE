@@ -1,6 +1,6 @@
 # Sodium experiment: design, targets and interpretation
 
-This is an exploratory revision analysis of the original sodium notebook, not a preregistered study or a validation of clinical claims. The original manuscript and notebooks are preserved. This package focuses on normalized **Mean PEACE**, the manuscript's principal metric. Statements about flatness and units below do not automatically apply to unnormalized PEACE.
+This synthetic study examines sodium intake and blood pressure under a specified structural equation model. It is exploratory and is not a validation of clinical claims. The analysis focuses on normalized **Mean PEACE**. Statements about flatness and units below do not automatically apply to unnormalized PEACE.
 
 ## Structural model
 

@@ -1,4 +1,4 @@
-"""Reproducible sodium PEACE validation; no modifications to original notebooks.
+"""Sodium intake and blood pressure: simulation and PEACE estimation.
 
 Run with --stage core, comparators, uncertainty, density, or plots.
 All Monte Carlo seeds and settings are fixed in this file before simulation.

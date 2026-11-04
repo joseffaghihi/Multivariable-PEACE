@@ -131,7 +131,7 @@ def main():
 
 The revised experiment supports PEACE as a useful, explicitly weighted summary of local causal responsiveness in this simulator. It does not establish universal superiority over Causal Forest or DML. Estimation works reasonably under the baseline assumptions and improves with sample size. Sensitivity analyses quantify how limited overlap, density misspecification, and violations of identification assumptions affect observational estimates.
 
-The main deliverable is a validated analysis package, not an edited manuscript. The original notebook and paper have not been changed. This is an exploratory revision study; favorable and unfavorable results are both retained.
+This exploratory simulation study evaluates causal summaries and their estimation under specified mechanisms. Favorable and unfavorable results are both reported.
 
 ## What was run
 
@@ -261,7 +261,7 @@ Baseline results are reasonably close to their own targets; limited overlap incr
 
 {mdtable(col)}
 
-This preserves the original notebook's deliberate incorrect-DAG scenario in a clearly labeled form. The comparison uses the same structural-basis regression with and without proteinuria, so the changed adjustment is isolated. Conditioning on the outcome's descendant can drastically distort the response; it is not an intervention on proteinuria and not evidence of an intrinsic defect of a particular estimator.
+This scenario deliberately adjusts for a descendant of the outcome. The comparison uses the same structural-basis regression with and without proteinuria, so the changed adjustment is isolated. Conditioning on the outcome's descendant can drastically distort the response; it is not an intervention on proteinuria and not evidence of an intrinsic defect of a particular estimator.
 
 ### Separability and unobserved response heterogeneity
 
@@ -337,7 +337,7 @@ This package does not settle weak-instrument performance, general identification
         ("13_cancellation_illustration", "Auxiliary cancellation illustration"),
     ]
     body = """<h1>Sodium experiment</h1><p class="lead">Results, curve interpretation and validation for the Franklin Open major revision.</p>
-    <p>The revised analysis supports Mean PEACE as an explicit weighted summary of local responsiveness. It includes sensitivity analyses showing how observational estimates change when identification assumptions are violated. The original notebooks are retained for provenance.</p>
+    <p>The revised analysis supports Mean PEACE as an explicit weighted summary of local responsiveness. It includes sensitivity analyses showing how observational estimates change when identification assumptions are violated.</p>
     <p><a href="REPORT.md">Detailed results and interpretation</a> · <a href="METHODS.md">Methods and causal targets</a> · <a href="README.md">Reproduction instructions</a></p>
     <div class="callout"><b>Reading a curve:</b> Increasing means the new weights favor larger local magnitudes. Decreasing means they favor smaller magnitudes. Flat means the summary is unchanged by those weights. Curvature describes changing sensitivity to weighting; it does not by itself establish a nonlinear causal law. Turning points depend on the response, density and domain.</div>"""
     body += f"<p>900 main datasets, 150 comparator datasets, 60 density-only datasets, 100 bootstrap evaluation datasets with 200 resamples each, and additional collider/separability checks. Baseline sodium spline RMSE falls from {n500:.3f} to {n8000:.3f} as sample size increases from 500 to 8,000.</p>"
