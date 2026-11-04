@@ -2,7 +2,7 @@
 
 Code and numerical results for **Probabilistic Easy Variational Causal Effect**, by Usef Faghihi and Amir Saki.
 
-The November 2026 revision adds three self-contained synthetic studies. The two original notebooks are preserved unchanged in [archive/](../archive/README.md) as historical source material. Start with the scripts below for the revised results.
+This package contains the Python implementations, reference results and reproduction commands for three synthetic studies.
 
 | Study | Question | Location |
 | --- | --- | --- |
@@ -24,7 +24,7 @@ On Windows, activate with `.venv\Scripts\activate`. Availability of binary wheel
 
 ## Reproduce
 
-Run these commands from the repository root:
+Run these commands from the `reproducibility/` directory:
 
     python tools/check_results.py
     python reproduce.py --mode smoke
