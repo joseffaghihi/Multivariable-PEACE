@@ -1,0 +1,12 @@
+{
+  "design_sha256": "2f0813e54951e145684d8bf814d8b497a8cef34de68f044636e2f272863073ab",
+  "source_sha256": "5cdccf1605f2d6618902de4766012b97b63a7a6d6aec51c57c7fe92507c3d27a",
+  "scope": "Exact separation and estimator family fixed before noisy calibration; reference draws shared, outcome noises independent across mechanisms.",
+  "sample_sizes": [
+    2000,
+    8000,
+    32000
+  ],
+  "replicates_per_size": 40,
+  "published_source_sha256": "34dc787180ad07c0ee00870a7453fb02f9f93d6e7a3f8decbea9a045301cedff"
+}
