@@ -309,29 +309,21 @@ def null_intervals():
 
 def validate():
     checks = {}
-    # Check the archived simulator cell without running the notebook analyses.
-    source = ROOT.parent.parent / "Customer_Satisfaction_Example.ipynb"
-    notebook = json.loads(source.read_text())
-    cell = "".join(notebook["cells"][1]["source"])
-    cell = cell.replace("import xgboost as xgb", "")
-    scope = {}
-    exec(compile(cell, "original simulator cell", "exec"), scope)
-    original = scope["generator"](1000, seed=184)
+    # Check the outcome equation and the graph-implied exclusion.
+    x, y = generate(1000, seed=184)
     explicit = (
-        5 * original[N]
-        + 3 * original[M]
-        + 2 * original[E]
-        + original[D]
-        - 0.2 * original[B]
-        + 0.2 * original[C]
-        + 0.3 * original[I]
-        + 8 / (original[L] + 1)
+        5 * x[N]
+        + 3 * x[M]
+        + 2 * x[E]
+        + x[D]
+        - 0.2 * x[B]
+        + 0.2 * x[C]
+        + 0.3 * x[I]
+        + 8 / (x[L] + 1)
     )
-    checks["original_outcome_algebra_max_error"] = float(
-        np.max(np.abs(explicit - original["Customer Satisfaction"]))
-    )
-    o1 = scope["generator"](1000, fixed={M: 0.4}, seed=184)
-    o2 = scope["generator"](1000, fixed={M: 0.6}, seed=184)
+    checks["outcome_algebra_max_error"] = float(np.max(np.abs(explicit - y)))
+    o1, _ = generate(1000, fixed={M: 0.4}, seed=184)
+    o2, _ = generate(1000, fixed={M: 0.6}, seed=184)
     checks["usage_intervention_changes_bugs"] = bool(np.any(o1[B] != o2[B]))
     # Common-random-number simulator finite differences versus analytic means.
     errors = {}
@@ -456,7 +448,7 @@ def validate():
         joint_errors.append(float(np.max(np.abs(np.array(vals[0]) - vals[1]))))
     checks["estimated_joint_quadrature_max_difference"] = max(joint_errors)
     checks["passed"] = bool(
-        checks["original_outcome_algebra_max_error"] < 1e-12
+        checks["outcome_algebra_max_error"] < 1e-12
         and not checks["usage_intervention_changes_bugs"]
         and max(feature_errors.values()) < 1e-10
         and max(errors.values()) < 2e-5

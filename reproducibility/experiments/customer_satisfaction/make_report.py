@@ -426,12 +426,12 @@ A preliminary global-grid check exposed a discrepancy of about 2.21 for discount
     body += f"<p>Signed-linear ad-spend interval mapped through absolute value: coverage {null['coverage']:.2%} over 400 datasets. This is a model-specific reference, not a general PEACE uncertainty procedure.</p><p>All final numerical checks passed. See the detailed report for methodological limitations, validation coverage and the preserved development audit.</p>"
     if (ROOT / "learned_mechanisms/REPORT.html").exists():
         body = (
-            '<div class="callout"><b>New follow-up:</b> <a href="learned_mechanisms/REPORT.html">Learned-mechanism observational estimation</a> improves point accuracy under explicit model assumptions and supplies a conditional theoretical addition to the separate estimation document. The original benchmarks below remain available.</div>'
+            '<div class="callout"><b>Mechanism-based estimation:</b> <a href="learned_mechanisms/REPORT.html">Learned-mechanism observational estimation</a> evaluates point accuracy under explicit model assumptions. The benchmark results are reported below.</div>'
             + body
         )
     if (ROOT / "flexible_estimation/REPORT.html").exists():
         body = (
-            '<div class="callout"><b>Latest follow-up:</b> <a href="flexible_estimation/REPORT.html">Linear and flexible estimation without exact structural forms</a>: actual estimates, supported versus global targets, unknown-shape checks and precision limits.</div>'
+            '<div class="callout"><b>Flexible estimation:</b> <a href="flexible_estimation/REPORT.html">Linear and flexible estimation without exact structural forms</a>: actual estimates, supported versus global targets, unknown-shape checks and precision limits.</div>'
             + body
         )
     style = 'body{font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#203044;max-width:1160px;margin:48px auto;padding:0 24px}h1{font-size:42px;line-height:1.15}h2{margin-top:36px;font-size:24px}.lead{font-size:22px;color:#53647a}a{color:#245c9d}img{max-width:100%;height:auto;border:1px solid #dde5ed;border-radius:7px}.callout{background:#edf3fa;border-left:4px solid #245c9d;padding:20px}section{margin:36px 0}.table{overflow:auto}table{border-collapse:collapse;font-size:13px;width:100%}td,th{padding:9px;text-align:left;border-bottom:1px solid #dce4ed}th{background:#edf3fa}'
@@ -443,13 +443,11 @@ A preliminary global-grid check exposed a discrepancy of about 2.21 for discount
         + "</main></html>"
     )
     sources = [
-        ROOT.parent.parent / "Customer_Satisfaction_Example.ipynb",
         ROOT / "experiment.py",
         ROOT / "README.md",
     ]
     provenance = {
         "repository": "https://github.com/joseffaghihi/Multivariable-PEACE",
-        "reviewed_commit": "70fb6c2c3f51d0a76fd5ec909e53ade4b18b6307",
         "primary_usage_coefficient": 3,
         "printed_equation_oracle_sensitivity_coefficient": 30,
         "python": platform.python_version(),

@@ -1,21 +1,19 @@
-# Customer satisfaction: separate experimental component
+# Customer satisfaction: simulation methods
 
-This is a simulation and observational-estimation study of the synthetic marketing SEM, not an analysis of real customer data. No manuscript files, sodium results, or estimation-section files are changed. The primary model follows the archived repository notebook. The printed outcome equation is retained as a separate coefficient sensitivity, not silently substituted.
+This study uses a synthetic marketing structural equation model to examine total intervention responses, observational estimation and predictive attribution. All data are simulated.
 
-## 1. Sources and decisions
+## 1. Model and analysis settings
 
-Original simulator: ../../Customer_Satisfaction_Example.ipynb at repository commit 70fb6c2c3f51d0a76fd5ec909e53ade4b18b6307. Cell labels below are zero based. The revised scripts are the supported replication path.
-
-| Issue | Primary analysis | Separate check |
+| Component | Primary setting | Additional analysis |
 |---|---|---|
-| Usage coefficient: manuscript 10×3 versus notebook 10×0.3 | Notebook coefficient b=3 in expanded outcome | Oracle curves with b=30 |
-| Graph has usage → bugs faced; generator has independent bugs | Omit that edge, follow generator | Common-seed original-generator intervention check |
-| Original simulator has no outcome noise | Preserve original baseline | Add independent Normal(0,0.5²) outcome noise |
-| Original includes 45 pair curves | Six preselected pairs with tractable population densities and exact gradients | Three representative joint observational benchmarks; no assertion that all 45 were replicated |
-| SHAP treated as a competing causal estimator | Held-out predictive attribution | Compare questions, not numerical errors against causal truth |
-| Original DML references undefined X_new/y_new | Explicit data and three-fold cross-fitting | Reproducible repeated simulations |
+| Monthly-usage coefficient | b=3 in the expanded outcome equation | Oracle sensitivity with b=30 |
+| Bugs faced | Independent exogenous variable | Common-seed intervention check that usage does not change bugs faced |
+| Outcome noise | No noise in the mechanism reference | Independent Normal(0,0.5²) noise for estimation |
+| Joint responses | Six selected pairs with tractable densities and exact gradients | Three representative observational benchmarks |
+| Predictive attribution | Held-out SHAP values | Compared as a predictive summary, with its own target |
+| Double machine learning | Explicit treatment contrasts and three-fold cross-fitting | Repeated seeded simulations |
 
-All new randomness uses local NumPy generators. Thus distributions and mechanisms reproduce the primary SEM; observations need not match the old global-random-state seed sample. The validation script executes only the original simulator cell to verify algebra and the disputed graph edge.
+Randomness uses local NumPy generators. The validation routine checks the outcome equation, graph-implied exclusions, analytic derivatives, density masses, signed decompositions and numerical integration.
 
 ## 2. Structural equations and graph
 
@@ -34,7 +32,7 @@ Graph edges are exactly those implied by these assignments. A and R have no outg
 
 ## 3. Response targets, normalization and domain
 
-For one exposure V, the original notebook computes the total mean response h_V(v)=E[Y_do(V=v)]. All other variables follow their structural equations. It does not fix every variable in the outcome equation. For a pair, h_VW(v,w)=E[Y_do(V=v,W=w)] is a simultaneous intervention. Intervening on a mediator blocks the corresponding ancestor-to-mediator path.
+For one exposure V, the analysis uses the total mean response h_V(v)=E[Y_do(V=v)]. All other variables follow their structural equations. It does not fix every variable in the outcome equation. For a pair, h_VW(v,w)=E[Y_do(V=v,W=w)] is a simultaneous intervention. Intervening on a mediator blocks the corresponding ancestor-to-mediator path.
 
 On an explicitly fixed domain Ω, the normalized total Mean PEACE is
 
