@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Please cite this software and the associated PEACE manuscript when using these studies."
+title: "PEACE: reproducible simulation studies"
+type: software
+authors:
+  - family-names: Faghihi
+    given-names: Usef
+  - family-names: Saki
+    given-names: Amir
+version: "2026.11"
+date-released: 2026-11-04
+repository-code: "https://github.com/joseffaghihi/Multivariable-PEACE"

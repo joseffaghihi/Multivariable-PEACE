@@ -1,0 +1,7 @@
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+extend-exclude = ["*.ipynb"]
+
+[tool.ruff.lint]
+select = ["E9", "F821", "F822", "F823"]
