@@ -1,10 +1,14 @@
-# Multivariable PEACE
+# PEACE
 
-Research code for **Probabilistic Easy Variational Causal Effect**, by Usef Faghihi and Amir Saki.
+Code and reproducible experiments accompanying **Probabilistic Easy Variational Causal Effect**, by Usef Faghihi and Amir Saki.
 
-## Revised simulation studies — November 2026
+## Experiments
 
-The [reproducibility package](reproducibility/README.md) contains the revised sodium-intake and customer-satisfaction experiments, together with the separate matched-mechanism study. It provides readable Python sources, fixed seeds, the recorded dependency environment, reference outputs, numerical checks and commands for fresh runs.
+- [Sodium intake and blood pressure](reproducibility/experiments/sodium/README.md)
+- [Customer satisfaction](reproducibility/experiments/customer_satisfaction/README.md)
+- [Matched causal mechanisms](reproducibility/experiments/matched_mechanisms/README.md)
+
+## Reproducing the results
 
     cd reproducibility
     python3.13 -m venv .venv
@@ -13,6 +17,6 @@ The [reproducibility package](reproducibility/README.md) contains the revised so
     python tools/check_results.py
     python reproduce.py --mode smoke
 
-Use `--mode validate`, `--mode figures`, or `--mode full` for numerical validation, report reconstruction, or complete Monte Carlo regeneration. See the [full instructions](reproducibility/docs/REPRODUCIBILITY.md) and [manuscript result map](reproducibility/docs/MANUSCRIPT_RESULTS.md).
+Use `--mode validate` for numerical checks, `--mode figures` to rebuild reports and plots from the reference results, or `--mode full` to run the complete simulations.
 
-The two original notebooks are preserved unchanged in the [archive](archive/README.md). Their exploratory cells are not the supported pipeline for the revised manuscript.
+See the [reproduction instructions](reproducibility/docs/REPRODUCIBILITY.md) and [manuscript result map](reproducibility/docs/MANUSCRIPT_RESULTS.md) for settings, outputs and computational requirements.
