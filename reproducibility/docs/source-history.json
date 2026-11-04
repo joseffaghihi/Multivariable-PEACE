@@ -1,0 +1,32 @@
+{
+  "original_repository_commit": "70fb6c2c3f51d0a76fd5ec909e53ade4b18b6307",
+  "study_source_hashes_before_publication_cleanup": {
+    "experiments/sodium/interpretation_plots.py": "1f9c149dcf23a38be9ff3965bb2bd371ed27275b6885d309583fdeb7cbe25ecc",
+    "experiments/sodium/validate_kde.py": "39b3ea93c27305e56e121a3a69194ad89fe8f3b4b7350139d9eb600ca510e837",
+    "experiments/sodium/experiment.py": "2661ffedf7218f0a14b042e65d4057eb7378d9aa5200dfd3e389240e5bd9cee0",
+    "experiments/sodium/validate.py": "f5356ea5d119ba2dde1a8bbd4ac2355e539e6b8b5d09e8f28a30343289ef9979",
+    "experiments/sodium/make_report.py": "4e5050d92e713478dcd0e7333a39cb76c3731fe9b736922a210d6bc0500c96b9",
+    "experiments/sodium/separability_analysis.py": "a6e5412a128e85865c5170af25ae8ac5e0e24365506048147701b4c73717360a",
+    "experiments/sodium/extra_analysis.py": "678c6b8a535fe9ebb54c0752159b03b7611a89537a97ba1fefeeeea816fd3c9e",
+    "experiments/customer_satisfaction/experiment.py": "fc1ee65b38e48806ba9426e19e0c77fcae85ca7acedf039a18ab0257b89f0858",
+    "experiments/customer_satisfaction/interpretation.py": "07b96eb2b086e162ff94e38ccf99db3336348f8449263dd9d369c8ecdc336152",
+    "experiments/customer_satisfaction/make_report.py": "05c24a75bcf8f38e9aca021db59ae8dadce8be0f036d00fda91ce8dad503a340",
+    "experiments/customer_satisfaction/run_all.py": "7ee94f4506a1b0e20adb07a9c66bcf42feedf8788201678cb4cd9a510ffc7553",
+    "experiments/customer_satisfaction/extra_analysis.py": "37eb3c7f2b6063d63ac7fb8da1a3da6f94475d05d28b313ad8fa25bc9d1b006b",
+    "experiments/customer_satisfaction/flexible_estimation/audit.py": "f9597dfca697467f9b448ac40955ce8d881a9e5f3c0c81c094d8c51ec10ee7ab",
+    "experiments/customer_satisfaction/flexible_estimation/models.py": "83d3f153bed9be7cabe3139b27fce12c1b5d8ac5be515af36ae6535c0a479f9b",
+    "experiments/customer_satisfaction/flexible_estimation/selected_audit.py": "07c430b22652da62e78015e2470c121f2ed3543eee05518096ce2a1c7f490803",
+    "experiments/customer_satisfaction/flexible_estimation/selected_study.py": "7613694c88c327419b98eb83ff7833a2e151d1f867b661eeeb85eb9e68e00c10",
+    "experiments/customer_satisfaction/flexible_estimation/joint.py": "4dafc7f8b7c9db1ade925aafc0e4cf5aef7ff8cc9bc5ee5c2e138df14ad34789",
+    "experiments/customer_satisfaction/flexible_estimation/shape_challenge.py": "7c91995382ba640fd2022195cbb23d6895147e5a94a9e5f8035fdd49ffaf3d7f",
+    "experiments/customer_satisfaction/flexible_estimation/report.py": "ab9ae5e976a86573d31756b6a2c24d895f8a2e168586a34c8b6ed8d0d2413cbe",
+    "experiments/customer_satisfaction/flexible_estimation/study.py": "303366d7f825529d664fb747ed8f9e2a19c2e73f5b3b7243aa5a738a6115fb38",
+    "experiments/customer_satisfaction/learned_mechanisms/report.py": "5831498614becc9123259aafab3bf55193c8985c78c52a26b69b0132b11575cb",
+    "experiments/customer_satisfaction/learned_mechanisms/study.py": "68326d74f28a8a5cea5cb45a0220da9ca24f8c23dec1fc22ff506a8f0e9c78bf",
+    "experiments/matched_mechanisms/experiment.py": "5cdccf1605f2d6618902de4766012b97b63a7a6d6aec51c57c7fe92507c3d27a",
+    "experiments/matched_mechanisms/report.py": "22239db41db0ef5cdbe52cfd32096b4283b3220e09e5b3a8247c22eb47246081",
+    "experiments/matched_mechanisms/density_audit.py": "7b4b1bdd27d4c9ea1493f9e2d964492c10fe90ab06a4a26bb359194633999352",
+    "experiments/matched_mechanisms/independent_audit.py": "e81089a9845a3c547ca21cb140a67c183cebb658377e352c6a7b660b3419e4dd"
+  },
+  "changes": "Formatting, explicit imports, portable paths, execution wrappers and documentation; numerical study designs retained."
+}

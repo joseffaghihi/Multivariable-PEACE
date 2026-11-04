@@ -1,0 +1,8 @@
+{
+  "comparison": "Python AST, excluding source locations and comments",
+  "unchanged_core_functions_and_classes": {
+    "sodium": 22,
+    "customer_satisfaction": 32,
+    "matched_mechanisms": 13
+  }
+}

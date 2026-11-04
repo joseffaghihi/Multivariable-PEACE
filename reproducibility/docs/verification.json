@@ -1,0 +1,50 @@
+{
+  "final-smoke": {
+    "python": "3.13.3",
+    "mode": "smoke",
+    "studies": [
+      "sodium",
+      "customer",
+      "matched"
+    ],
+    "stages": 3,
+    "passed": true
+  },
+  "final-validation": {
+    "python": "3.13.3",
+    "mode": "validate",
+    "studies": [
+      "sodium",
+      "customer",
+      "matched"
+    ],
+    "stages": 11,
+    "passed": true
+  },
+  "final-figures": {
+    "python": "3.13.3",
+    "mode": "figures",
+    "studies": [
+      "sodium",
+      "customer",
+      "matched"
+    ],
+    "stages": 9,
+    "passed": true
+  },
+  "final-matched-full": {
+    "python": "3.13.3",
+    "mode": "full",
+    "studies": [
+      "matched"
+    ],
+    "stages": 5,
+    "passed": true
+  },
+  "matched_full_reference_agreement": {
+    "rows": 4800,
+    "absolute_tolerance": 1e-10,
+    "relative_tolerance": 1e-10,
+    "passed": true
+  }
+}
