@@ -2,7 +2,7 @@
 
 ## Reference snapshot
 
-The CSV/JSON results and reference figure assets are stored in reference_outputs.zip, with their original experiments/*/results and figures paths. The runner extracts only the selected studies into its working directory. These are the numerical snapshot used for reporting. reference_manifest.json records their SHA-256 checksums. tools/check_results.py also checks the selected sodium and customer table entries and the matched-mechanism natural-weight identity.
+The three earlier studies' CSV/JSON results and reference figure assets are stored in reference_outputs.zip. The IV results, reports and figures are stored separately in iv_reference_outputs_*.zip. Both use experiments/*/results and figures paths. The runner extracts only the selected studies into its working directory. reference_manifest.json records checksums for both archives. tools/check_results.py also checks the selected sodium/customer table entries, matched-mechanism identity, and all six IV table rows and target values.
 
 A successful snapshot check establishes file integrity and consistency with those reported values. It is separate from regenerating the results from random draws.
 
@@ -13,6 +13,10 @@ reproduce.py copies the requested study into a new working directory and launche
 Sodium uses 100 datasets per primary sample-size/scenario case, 50 comparator datasets per scenario, and 100 datasets with 200 bootstrap draws for the uncertainty experiment. Customer includes the original simulator benchmark, the stronger-assumption learned-mechanism benchmark, and the 40-dataset cross-fitted flexible estimation study. Matched mechanisms uses 40 paired calibration datasets at each of three sample sizes and a 20,000-observation natural reference sample.
 
 The customer full run includes both follow-ups. The flexible estimator does not receive the true logistic or reciprocal response features. The learned-mechanism benchmark does receive the graph and functional families and learns their unknown parameters. These information sets must not be conflated.
+
+The IV full run uses the parent cubic and linear simulations first, then the quadratic comparison and large-sample follow-up. The quadratic and cubic initial designs each use 9000 datasets and 63000 response fits. The quadratic large-sample follow-up adds 3000 datasets and 9000 response fits. Paired-recovery analysis retains all 135000 fitted responses across 270 cells. The parent linear robust-inference check has 90000 repetitions. Full mode freezes new portability/protection metadata in the fresh working tree; standalone runs do not need manuscript files. The design records retain the sequential exploratory origin.
+
+For IV, report reconstruction regenerates the paired counts and sensitivity summaries without refitting. Validation audits the parent and follow-up numerical outputs independently. Source and parent-output checks compare against the hashes frozen before the follow-up. Reports and metadata must therefore be generated in the dependency order used by the runner. The reference snapshot is from a clean full run of these published files, rather than requiring hashes of files in an earlier local project layout.
 
 ## Numerical agreement
 

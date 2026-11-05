@@ -8,4 +8,6 @@ The studies are exploratory and are not claimed to be preregistered. The custome
 
 The matched-mechanism design was recorded before its noisy calibration. `design-record.json` records the design and source hashes. Calibration assumes the stated spectral model family. It does not establish unrestricted response-learning guarantees.
 
+The instrumental-variable addition retains the original parent cubic/linear study, the later quadratic comparison used by the manuscript, and the subsequent large-sample precision check. Their dated design records and configurations remain separate. The quadratic estimator and scoring rules are unchanged; packaging edits update reproduction paths and publication-status prose. The reference IV outputs are regenerated in the portable package and compared with the original local numerical CSV outputs. No sample, strength, penalty, unsuccessful fit or zero-strength endpoint is removed.
+
 The package contains synthetic experimental code, reference outputs and technical documentation. All commands run using the files supplied in this repository and the recorded dependency environment. Numerical checks, smaller fresh-fit checks and complete simulation runs serve different purposes; see [reproduction details](REPRODUCIBILITY.md).
