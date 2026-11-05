@@ -17,6 +17,7 @@ STUDIES = {
     "sodium": "sodium",
     "customer": "customer_satisfaction",
     "matched": "matched_mechanisms",
+    "iv": "instrumental_variables",
 }
 
 
@@ -51,6 +52,25 @@ def environment(work):
 def stages(study, mode):
     if mode == "smoke":
         return [(".", ["tools/smoke.py", study])]
+    if study == "iv":
+        parent = "experiments/instrumental_variables"
+        quadratic = parent + "/quadratic_comparison"
+        checks = [(parent, ["audit.py"]), (quadratic, ["audit.py"])]
+        figures = [(parent, ["report.py"]), (quadratic, ["report.py"])]
+        if mode == "validate":
+            return checks + [(quadratic, ["recovery.py"])]
+        if mode == "figures":
+            return figures
+        # Freeze/audit the parent before the follow-up records its protection hashes.
+        return [
+            (parent, ["experiment.py", "run"]),
+            (parent, ["audit.py"]),
+            (parent, ["report.py"]),
+            (quadratic, ["comparison.py"]),
+            (quadratic, ["large_sample.py"]),
+            (quadratic, ["audit.py"]),
+            (quadratic, ["report.py"]),
+        ]
     if study == "sodium":
         checks = ["experiment.py --stage oracle", "validate.py", "validate_kde.py"]
         figures = [
@@ -178,13 +198,29 @@ def main():
     shutil.copytree(ROOT / "tools", work / "tools")
     shutil.copytree(ROOT / "docs", work / "docs")
     if args.mode != "full":
-        with zipfile.ZipFile(ROOT / "reference_outputs.zip") as archive:
-            prefixes = tuple("experiments/" + STUDIES[name] + "/" for name in selected)
-            for item in archive.infolist():
-                if item.filename.startswith(prefixes):
-                    if ".." in Path(item.filename).parts:
-                        raise ValueError("Invalid reference archive path")
-                    archive.extract(item, work)
+        archives = [
+            (
+                ROOT / "reference_outputs.zip",
+                [name for name in selected if name != "iv"],
+            )
+        ]
+        if "iv" in selected:
+            archives.extend(
+                (path, ["iv"])
+                for path in sorted(ROOT.glob("iv_reference_outputs_*.zip"))
+            )
+            if len(archives) == 1:
+                raise FileNotFoundError("The IV reference archive parts are missing")
+        for archive_path, names in archives:
+            if not names:
+                continue
+            with zipfile.ZipFile(archive_path) as archive:
+                prefixes = tuple("experiments/" + STUDIES[name] + "/" for name in names)
+                for item in archive.infolist():
+                    if item.filename.startswith(prefixes):
+                        if ".." in Path(item.filename).parts:
+                            raise ValueError("Invalid reference archive path")
+                        archive.extract(item, work)
     logs = work / "logs"
     logs.mkdir()
     env = environment(work)

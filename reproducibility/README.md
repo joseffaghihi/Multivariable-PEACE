@@ -2,15 +2,16 @@
 
 Code and numerical results for **Probabilistic Easy Variational Causal Effect**, by Usef Faghihi and Amir Saki.
 
-This package contains the Python implementations, reference results and reproduction commands for three synthetic studies.
+This package contains the Python implementations, reference results and reproduction commands for four synthetic studies.
 
 | Study | Question | Location |
 | --- | --- | --- |
 | Sodium intake and blood pressure | How do treatment/profile weights, overlap, density specification and hidden confounding affect a specified causal summary? | [Sodium](experiments/sodium/README.md) |
 | Customer satisfaction | How do total responses differ from predictive attribution, and how accurately can their local variation be estimated? | [Customer satisfaction](experiments/customer_satisfaction/README.md) |
 | Matched causal mechanisms | Can mechanisms with matched conventional scalar summaries have different probability-weighted local response variation? | [Matched mechanisms](experiments/matched_mechanisms/README.md) |
+| Instrumental variables | How do instrument strength and sample size affect recovery of a finite causal contrast and Mean PEACE from the same fitted response? | [IV experiment](experiments/instrumental_variables/README.md) |
 
-The first two studies support the revised manuscript. The third is a separate supporting study. All observations are simulated; no confidential or real participant data are included.
+All four studies support examples in the revised manuscript. The IV folder includes the quadratic comparison used in the paper, its required parent numerical module and the supporting cubic and linear analyses. All observations are simulated; no confidential or real participant data are included.
 
 ## Installation
 
@@ -38,7 +39,7 @@ Run these commands from the `reproducibility/` directory:
 - **figures** rebuilds reports and supplementary plots using the supplied result/figure snapshot; it does not refit the simulations. Full mode regenerates the complete analyses and their figures.
 - **full** regenerates the simulations, checks, summaries and plots from scratch using the published seeds and replication counts. The bootstrap and flexible-estimation stages are substantial CPU workloads; expect this to take much longer than a smoke run.
 
-Use `--study sodium`, `--study customer`, or `--study matched` to select one study. Supply `--output /path/to/new-directory` to choose a working directory. Existing output directories are rejected. By default each run creates a timestamped directory under runs/, with complete stage logs and execution.json. The reference_outputs.zip snapshot is never overwritten by the runner.
+Use `--study sodium`, `--study customer`, `--study matched`, or `--study iv` to select one study. Supply `--output /path/to/new-directory` to choose a working directory. Existing output directories are rejected. By default each run creates a timestamped directory under runs/, with complete stage logs and execution.json. The reference archives are never overwritten by the runner. The IV snapshot is stored separately in `iv_reference_outputs_*.zip`; the three earlier studies' `reference_outputs.zip` is unchanged.
 
 See [replication details](docs/REPRODUCIBILITY.md) for the distinction between reference-result verification, fresh simulation and platform-sensitive floating-point agreement.
 
