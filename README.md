@@ -7,6 +7,7 @@ Code and reproducible experiments accompanying **Probabilistic Easy Variational 
 - [Sodium intake and blood pressure](reproducibility/experiments/sodium/README.md)
 - [Customer satisfaction](reproducibility/experiments/customer_satisfaction/README.md)
 - [Matched causal mechanisms](reproducibility/experiments/matched_mechanisms/README.md)
+- [Instrumental variables: a causal contrast and Mean PEACE](reproducibility/experiments/instrumental_variables/README.md)
 
 ## Reproducing the results
 
