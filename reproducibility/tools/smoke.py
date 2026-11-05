@@ -1,4 +1,4 @@
-"""Small seeded fits and numerical checks for all three studies."""
+"""Small seeded fits and numerical checks for all four studies."""
 
 import importlib
 import json
@@ -104,11 +104,51 @@ def matched():
     }
 
 
+def iv():
+    folder = ROOT / "experiments/instrumental_variables/quadratic_comparison"
+    sys.path.insert(0, str(folder))
+    study = importlib.import_module("comparison")
+    audit = importlib.import_module("audit")
+    truth = study.functionals(study.true_theta())
+    index = list(study.DEGREES).index(0.5)
+    assert abs(truth["contrast"][index] - 1.75) < 1e-13
+    assert abs(truth["peace"][index] - 1.41838949) < 5e-9
+    independent = audit.independent_metrics(study.true_theta(), 0.5)
+    assert abs(independent["peace"] - truth["peace"][index]) < 1e-11
+    latent = study.core.generate_latent(2000, 17)
+    errors = []
+    for rho in (0.8, 0.05):
+        w, x, y = study.observed(latent, rho)
+        models = study.fit_models(x, w, y)
+        assert len(models) == 7
+        theta = next(theta for method, _, theta, _ in models if method == "IV degree 2")
+        p, q = study.core.basis(x, 2), study.core.basis(w, 2)
+        a, b, *_ = study.core.centered_moments(p, q, y)
+        error = float(study.np.max(abs(a @ theta[1:] - b)))
+        assert error < 1e-10
+        values = study.functionals(theta)
+        assert study.np.isfinite(values["peace"]).all()
+        independent = audit.independent_metrics(theta, 0.5)
+        assert abs(values["peace"][index] - independent["peace"]) < 1e-8
+        errors.append(error)
+    return {
+        "contrast_truth": float(truth["contrast"][index]),
+        "mean_peace_truth": float(truth["peace"][index]),
+        "fresh_strong_and_weak_iv_fits": "passed",
+        "moment_residuals": errors,
+    }
+
+
 if __name__ == "__main__":
     name = sys.argv[1]
     result = {
         "study": name,
-        "checks": {"sodium": sodium, "customer": customer, "matched": matched}[name](),
+        "checks": {
+            "sodium": sodium,
+            "customer": customer,
+            "matched": matched,
+            "iv": iv,
+        }[name](),
         "passed": True,
     }
     (ROOT / f"smoke-{name}.json").write_text(json.dumps(result, indent=2) + "\n")
