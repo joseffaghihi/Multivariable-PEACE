@@ -1,0 +1,20 @@
+{
+  "seed": 2026110401,
+  "nonlinear_repetitions": 500,
+  "linear_repetitions": 5000,
+  "sample_sizes": [1000, 4000, 16000],
+  "instrument_correlations": [0.8, 0.5, 0.2, 0.1, 0.05, 0.0],
+  "degrees": [0.0, 0.25, 0.5, 1.0, 2.0],
+  "evaluation_domain": [-2.5, 2.5],
+  "confounder_loading_in_treatment": 0.5,
+  "confounder_loading_in_outcome": 1.0,
+  "outcome_noise_sd": 0.5,
+  "hermite_probabilists_coefficients": [0.0, 1.0, 0.5, 0.4],
+  "ridge_penalties": [0.000001, 0.0001, 0.01],
+  "primary_ridge_penalty": 0.0001,
+  "primary_series_degree": 3,
+  "sensitivity_series_degree": 5,
+  "quadrature_order_per_sign_interval": 32,
+  "illustrative_dataset_repetition": 0,
+  "linear_beta": 1.0
+}
